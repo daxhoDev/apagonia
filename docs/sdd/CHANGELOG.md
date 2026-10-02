@@ -14,3 +14,4 @@ All notable changes to this project are recorded here, following the [Keep a Cha
 ### Changed
 
 - 2026-10-02 · research rules propagated · AGENTS.md, .claude/agents/specifier.md, .claude/agents/implementer.md, .claude/agents/reviewer.md · task researcher-role
+- 2026-10-02 · bootstrap record made count-free · AGENTS.md · task bootstrap-record
