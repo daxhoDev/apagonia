@@ -18,3 +18,4 @@ All notable changes to this project are recorded here, following the [Keep a Cha
 - 2026-10-02 · bootstrap record made count-free · AGENTS.md · task bootstrap-record
 - 2026-10-06 · docs restructured into module files; golden rule 2 allows trivial decisions · AGENTS.md, .claude/agents/*, _TEMPLATE.md, MAIN.md, DEVIATIONS.md · task docs-modules
 - 2026-10-06 · CONVENTIONS.md → v0.2 · task docs-modules
+- 2026-10-06 · question-explanation rule (plain-language options, mid-level explanations) · AGENTS.md, .claude/agents/specifier.md · task explain-questions
