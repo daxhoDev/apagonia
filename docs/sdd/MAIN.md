@@ -12,7 +12,7 @@ A system that listens in real time to the Telegram channel of the Empresa Eléct
 
 | Document | Purpose | Version |
 |---|---|---|
-| [CONVENTIONS.md](CONVENTIONS.md) | Project-wide conventions (stack, style, structure, testing, dependencies) | v0.2 |
+| [CONVENTIONS.md](CONVENTIONS.md) | Project-wide conventions (stack, style, structure, testing, dependencies) | v0.3 |
 | [CHANGELOG.md](CHANGELOG.md) | Change history, references only | — |
 | [DEVIATIONS.md](DEVIATIONS.md) | Record of user decisions that contradict approved specs | — |
 | [_TEMPLATE.md](_TEMPLATE.md) | Spec module template (template, not a module) | — |

@@ -27,7 +27,7 @@ User accounts: registration, login and authentication, and guest use without an 
 ### Guests (no account)
 
 - Without an account, a user can do **everything except receive push notifications** ([NOTIFICATIONS.md](NOTIFICATIONS.md)). Guests are on the free plan ([PLANS.md](PLANS.md)).
-- Guest data (subscriptions, preferences) is stored **only locally** on the device. The app warns guests to register to avoid losing their data.
+- Guest data (subscriptions, preferences) is stored **only locally** on the device, in a **SQLite** database (expo-sqlite, [CONVENTIONS.md](CONVENTIONS.md) §Stack). The app warns guests to register to avoid losing their data.
 - On registration, the local data is **preserved**: it is moved to the new account.
 
 ## Requirements

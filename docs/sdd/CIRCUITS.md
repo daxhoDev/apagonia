@@ -35,6 +35,8 @@ The circuit catalog and the current state of each circuit (affected by a blackou
 
 ### Outage hours and freshness in the app
 
+- While the app is open, the circuit states, the provincial situation and the daily situation are refreshed by the app's periodic polling ([MOBILE.md](MOBILE.md)).
+
 - The app shows an affected circuit's outage hours as the **reported hours plus the time elapsed since the header time** of the last status message, together with the **time of the last status message**.
 - After **2 hours** without an **applied** status message (discarded or ignored messages do not count), the app marks the state as **possibly outdated**.
 

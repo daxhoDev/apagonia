@@ -21,6 +21,15 @@ Real-time ingestion of the Telegram channel of the Empresa Eléctrica de Holguí
 - Channel: **https://t.me/elecholguin**.
 - Telethon connects to Telegram with the user's **personal** Telegram account.
 - The Telethon **session** is generated on the user's own machine (login code / 2FA there) and stored as a **secret of the hosting environment**, together with the Telegram API credentials. It is **never** stored in the repository.
+- The listener runs inside the backend worker process ([ARCHITECTURE.md](ARCHITECTURE.md)).
+
+### Session safety (single instance)
+
+Only one listener may be connected to Telegram with the session at any time.
+
+- The process that runs the listener is deployed with a **single replica**.
+- In addition, on start the listener takes a **lock in the database** before connecting to Telegram. If another **live** instance holds the lock, the listener **waits without connecting to Telegram** until the lock is released, then takes it and connects.
+- The lock is released when the holding instance stops, including when it dies or loses its database connection, so a crashed instance never blocks the next one forever.
 
 ### Message kinds
 

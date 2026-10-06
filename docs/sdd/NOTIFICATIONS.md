@@ -46,6 +46,9 @@ When one status message triggers several of these for the same user (e.g. "every
 
 - Channel: **Expo Push** (through FCM), with an **in-app fallback**: devices without Google services get no push, but see the up-to-date state when they open the app, plus a notice that their phone does not support notifications.
 - The delivery channel is **interchangeable**: the server-side notifier and the app talk to a pluggable delivery channel, so that a self-hosted persistent connection can replace FCM if needed.
+- **Delivery failures:**
+  - A **temporary** failure is retried up to **5 times** with increasing backoff (**10 s, 30 s, 1 min, 5 min, 15 min** after each failed attempt). If the last retry also fails, the notification is **abandoned** and **logged**.
+  - A **permanent** failure reported by the push service (device unregistered, invalid push token) is **not retried**: that push token is **removed** from the user's devices.
 - **Push validation (Phase 0, merged into the MVP):** FCM availability in Cuba is unconfirmed. Expo Push is validated with the MVP on real devices in Holguín, **without VPN**, with the **app closed** ([ROADMAP.md](ROADMAP.md)). Pass criterion (lax): **most** notifications arrive; no timing thresholds. If it fails, plan B: the delivery channel is replaced by a self-hosted persistent connection.
 
 ## Requirements

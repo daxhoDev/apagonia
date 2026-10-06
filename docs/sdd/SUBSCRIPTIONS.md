@@ -19,7 +19,7 @@ The link between users ([ACCOUNTS.md](ACCOUNTS.md)) and the circuits they follow
 - A user subscribes to circuits and sees the outage time of each subscribed circuit according to the Telegram channel.
 - **Limits** (supersedes "no subscription limit"): the **free plan follows 1 circuit**; the **paid plan** is **unlimited** ([PLANS.md](PLANS.md)). The MVP does not enforce the limit ([ROADMAP.md](ROADMAP.md)).
 - When a paid plan expires and the user follows more circuits than the free plan allows, **all** subscriptions are **paused** until the user picks one circuit or renews ([PLANS.md](PLANS.md)).
-- Guest subscriptions are stored only locally on the device and moved to the account on registration ([ACCOUNTS.md](ACCOUNTS.md)).
+- Guest subscriptions are stored only locally on the device (SQLite, [ACCOUNTS.md](ACCOUNTS.md)) and moved to the account on registration ([ACCOUNTS.md](ACCOUNTS.md)).
 
 ## Requirements
 
