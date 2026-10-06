@@ -2,7 +2,7 @@
 
 # Conventions
 
-**Version:** v0.1
+**Version:** v0.2
 
 Project-wide conventions, filled in as the user decides them.
 
@@ -12,7 +12,11 @@ Language and git rules (branches, commits, merges) are defined in [AGENTS.md](..
 
 ## Stack
 
-TBD — decided by the user.
+- **Backend:** FastAPI, with a Telethon listener for the Telegram channel.
+- **Database:** PostgreSQL.
+- **Client:** mobile app built with React Native + Expo.
+
+How these components fit together: [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Code style
 
