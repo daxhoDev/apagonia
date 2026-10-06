@@ -2,7 +2,7 @@
 
 # Conventions
 
-**Version:** v0.3
+**Version:** v0.4
 
 Project-wide conventions, filled in as the user decides them.
 
@@ -22,6 +22,7 @@ How these components fit together: [ARCHITECTURE.md](ARCHITECTURE.md).
 - **Database:** PostgreSQL.
 - **Database access:** SQLAlchemy 2 in async mode with the asyncpg driver.
 - **Migrations:** Alembic.
+- **Transactional email:** Resend, behind an interchangeable email-sending component ([ACCOUNTS.md](ACCOUNTS.md)).
 - **Containers:** one Docker image for the backend, used by the API and the worker processes; Docker Compose for local development with PostgreSQL.
 
 ### Mobile app
@@ -32,6 +33,11 @@ How these components fit together: [ARCHITECTURE.md](ARCHITECTURE.md).
 - **Navigation:** Expo Router.
 - **API data fetching:** TanStack Query.
 - **Local storage of guest data:** SQLite through expo-sqlite ([ACCOUNTS.md](ACCOUNTS.md)).
+
+## Naming
+
+- **Product name:** `Apagonía` (with accent), used in user-facing text and documents.
+- **Identifiers:** the repository, the Python package (`backend/src/apagonia/`) and all other code identifiers use `apagonia`, without the accent.
 
 ## Code style
 

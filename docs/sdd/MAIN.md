@@ -6,13 +6,15 @@ Process rules (workflow, agents, git, documentation rules): [AGENTS.md](../../AG
 
 ## Project overview
 
+Product name: **Apagonía**, a wordplay between *apagón* (blackout) and *agonía* (agony). Repository, package and other code identifiers use `apagonia`, without the accent ([CONVENTIONS.md](CONVENTIONS.md)).
+
 A system that listens in real time to the Telegram channel of the Empresa Eléctrica de Holguín and lets users subscribe to circuits, see their outage time and get notified when power returns.
 
 ## Process docs
 
 | Document | Purpose | Version |
 |---|---|---|
-| [CONVENTIONS.md](CONVENTIONS.md) | Project-wide conventions (stack, style, structure, testing, dependencies) | v0.3 |
+| [CONVENTIONS.md](CONVENTIONS.md) | Project-wide conventions (stack, style, structure, testing, dependencies) | v0.4 |
 | [CHANGELOG.md](CHANGELOG.md) | Change history, references only | — |
 | [DEVIATIONS.md](DEVIATIONS.md) | Record of user decisions that contradict approved specs | — |
 | [_TEMPLATE.md](_TEMPLATE.md) | Spec module template (template, not a module) | — |

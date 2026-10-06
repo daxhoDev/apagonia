@@ -27,6 +27,7 @@ The system is made of these logical components. Each one is specified in the mod
 5. **Notifier:** reads outbox events, decides who gets which notification ([NOTIFICATIONS.md](NOTIFICATIONS.md)) and hands them to the delivery channel.
 6. **Delivery channel:** interchangeable; Expo Push today, replaceable by a self-hosted persistent connection ([NOTIFICATIONS.md](NOTIFICATIONS.md)).
 7. **API** (FastAPI): serves the mobile app (circuits, accounts, subscriptions, preferences, app version checks).
+   - **Email sender:** interchangeable component used for account emails; Resend today ([ACCOUNTS.md](ACCOUNTS.md)).
 8. **Database:** PostgreSQL, shared by the API and the worker.
 9. **Mobile app** (React Native + Expo): Android client ([MOBILE.md](MOBILE.md)).
 
@@ -70,7 +71,7 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **Hosting.** Not decided. The backend needs an always-on Telegram listener, 3 months of history in the database ([HISTORY.md](HISTORY.md)) and APK file serving ([MOBILE.md](MOBILE.md)). Options under consideration (research dated 2026-10-06):
+1. **Hosting.** Not decided; it is decided **last**, after every other open point. The backend needs an always-on Telegram listener, 3 months of history in the database ([HISTORY.md](HISTORY.md)) and APK file serving ([MOBILE.md](MOBILE.md)). Options under consideration (research dated 2026-10-06):
    - **Render:** free web services sleep after 15 min idle; no free workers; free PostgreSQL expires after 30 days; its terms explicitly prohibit users in Cuba.
    - **Oracle Cloud Always Free:** always-on VMs, but no managed PostgreSQL; its terms explicitly prohibit Cuban nationals.
    - **Railway:** $1/month credit, likely insufficient for an always-on service.

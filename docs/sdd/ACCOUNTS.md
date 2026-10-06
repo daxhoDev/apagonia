@@ -22,11 +22,13 @@ User accounts: registration, login and authentication, and guest use without an 
 - Account features: **email verification**, **password recovery**, **password change**, **account deletion**.
 - **Authentication:** a short-lived **access token** (~15 min) and a long-lived **refresh token** (~30 days), stored securely on the device.
 - **Passwords:** hashed with a strong algorithm (argon2 or bcrypt); minimum **8 characters**.
-- The provider used to send emails is still to be decided (open point 1).
+- **Email sending:** transactional emails (verification, password recovery) are sent through **Resend**, behind an **interchangeable email-sending component** (like the push delivery channel, [NOTIFICATIONS.md](NOTIFICATIONS.md)), so the provider can be replaced without changing the rest of the system.
+- **Reason:** other providers considered either bar Cuba-based customers or no longer deliver to recipients in Cuba; Resend has no such restriction in its terms, but delivery to Cuba is still unconfirmed in practice.
+- **Pre-launch check:** before launch, sending to a real Cuban Nauta address (`@nauta.cu`) must be tested.
 
 ### Guests (no account)
 
-- Without an account, a user can do **everything except receive push notifications** ([NOTIFICATIONS.md](NOTIFICATIONS.md)). Guests are on the free plan ([PLANS.md](PLANS.md)).
+- Without an account, a user can do **everything except receive push notifications** ([NOTIFICATIONS.md](NOTIFICATIONS.md)) **and use paid features**: guests are on the free plan, and the paid plan requires a registered account ([PLANS.md](PLANS.md)).
 - Guest data (subscriptions, preferences) is stored **only locally** on the device, in a **SQLite** database (expo-sqlite, [CONVENTIONS.md](CONVENTIONS.md) §Stack). The app warns guests to register to avoid losing their data.
 - On registration, the local data is **preserved**: it is moved to the new account.
 
@@ -40,4 +42,4 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **Email sending provider.** Which provider sends verification and password-recovery emails.
+None so far.

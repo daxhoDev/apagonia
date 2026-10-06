@@ -36,4 +36,5 @@ None.
 
 ## Open points
 
-1. **Phase order.** The order of the other modules' implementation phases after the MVP.
+1. **Phase order.** The order of the other modules' implementation phases after the MVP. Not decided yet.
+2. **Branding.** Branding (visual identity, tagline, etc.) built around the product name's wordplay *apagón* + *agonía* ([MAIN.md](MAIN.md)). Pending.

@@ -37,6 +37,8 @@ When one status message triggers several of these for the same user (e.g. "every
 ### Preferences
 
 - Notification preferences are configurable per user: a **global setting with per-circuit exceptions**.
+- Global preferences and quiet hours are **free**; **per-circuit exceptions** are **paid** ([PLANS.md](PLANS.md)). Free users (and guests) use only the global setting. When a paid plan expires, existing exceptions are kept but inactive until renewal ([PLANS.md](PLANS.md)).
+- All three notification types are **free** ([PLANS.md](PLANS.md)).
 - Defaults for a new user: **power goes out ON**, **power returns ON**, **every status message OFF**.
 - A newly subscribed circuit has no exception, so it follows the user's global setting.
 - **Quiet hours:** the user can set a time range during which no notifications are sent. Notifications that fall in it are dropped, not delayed.
@@ -50,6 +52,7 @@ When one status message triggers several of these for the same user (e.g. "every
   - A **temporary** failure is retried up to **5 times** with increasing backoff (**10 s, 30 s, 1 min, 5 min, 15 min** after each failed attempt). If the last retry also fails, the notification is **abandoned** and **logged**.
   - A **permanent** failure reported by the push service (device unregistered, invalid push token) is **not retried**: that push token is **removed** from the user's devices.
 - **Push validation (Phase 0, merged into the MVP):** FCM availability in Cuba is unconfirmed. Expo Push is validated with the MVP on real devices in Holguín, **without VPN**, with the **app closed** ([ROADMAP.md](ROADMAP.md)). Pass criterion (lax): **most** notifications arrive; no timing thresholds. If it fails, plan B: the delivery channel is replaced by a self-hosted persistent connection.
+- **Plan B is a contingency:** it is designed **only if** the push validation fails. It blocks nothing else in this spec.
 
 ## Requirements
 
@@ -61,4 +64,4 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **Plan B design.** The design of the self-hosted persistent connection, needed only if the push validation fails.
+None so far.

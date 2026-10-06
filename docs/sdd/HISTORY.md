@@ -24,7 +24,8 @@ The stored history of status messages and circuit state changes, its retention, 
 
 ### Statistics
 
-- **History and statistics per circuit**, built from the stored history (the 3-month retention window): **average** and **longest** outage duration, compared with the **provincial average**. Whether statistics are free or paid is decided with the rest of the freemium ([PLANS.md](PLANS.md)).
+- **History and statistics per circuit**, built from the stored history (the 3-month retention window): **average** and **longest** outage duration, compared with the **provincial average**.
+- The **per-circuit history** and the **per-circuit statistics** are **paid** features ([PLANS.md](PLANS.md)).
 
 ### Prediction
 
@@ -42,4 +43,4 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **Cycle detection and confidence.** How a rotation cycle is detected and how the confidence level (e.g. low/medium/high) is computed.
+1. **Cycle detection and confidence (deferred).** How a rotation cycle is detected and how the confidence level (e.g. low/medium/high) is computed. Decided later **with real data**: once weeks of history are stored, candidate approaches (typical durations only, vs durations plus time-of-day slots) are compared on that data.
