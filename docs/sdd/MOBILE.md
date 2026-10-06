@@ -4,7 +4,7 @@
 
 - **Module:** Mobile app
 - **Module code:** MOB
-- **Version:** v0.1
+- **Version:** v0.2
 - **Status:** Draft
 - **Last updated:** 2026-10-06
 
@@ -17,8 +17,13 @@ Concerns that apply to the whole mobile client: supported platform, distribution
 ## Decided so far
 
 - **Android only.**
-- Distribution by **direct APK download**.
+- Distribution by **direct APK download** from **our own server**.
+- The APK is built with **EAS Build**.
+- **Updates:** the app checks the API for a newer version and offers a download link to the new APK. Updates are **optional** by default; if the API marks the installed version as **no longer compatible**, the app **blocks use until it is updated** (mandatory update). Over-the-air (OTA) updates may be added later.
+- **Expo SDK:** the latest stable version at implementation start. **Minimum Android version:** the minimum supported by that SDK.
 - App UI language: **Spanish**. Docs, code and identifiers remain English (`AGENTS.md` §8).
+- Times are shown in **Cuba local time** ([LISTENER.md](LISTENER.md)).
+- **Formats** (Cuban conventions): dates `d/m/yyyy`; times in 12-hour format like the channel (`7:27 PM`); durations `H:MM` with hours that may exceed 24 (e.g. `27:50 h`).
 
 ## Requirements
 
@@ -30,6 +35,4 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **APK build and updates.** How the APK is built (e.g. cloud versus local Expo builds), where it is downloaded from, and how users learn about and get new versions.
-2. **Android support range.** The minimum Android version supported.
-3. **Time zone and formats.** Time zone used for display (presumably Cuba's) and date/time and duration formats in the Spanish UI.
+None so far.

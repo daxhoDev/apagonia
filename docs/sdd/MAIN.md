@@ -21,12 +21,16 @@ A system that listens in real time to the Telegram channel of the Empresa Eléct
 
 | Document | Code | Purpose | Version | Status |
 |---|---|---|---|---|
-| [ARCHITECTURE.md](ARCHITECTURE.md) | ARCH | System components, data flow and hosting | v0.1 | Draft |
-| [LISTENER.md](LISTENER.md) | LSN | Telegram channel ingestion and message parsing | v0.1 | Draft |
-| [CIRCUITS.md](CIRCUITS.md) | CIRC | Circuit catalog and current circuit state | v0.1 | Draft |
-| [ACCOUNTS.md](ACCOUNTS.md) | ACCT | User registration, login and authentication | v0.1 | Draft |
-| [SUBSCRIPTIONS.md](SUBSCRIPTIONS.md) | SUBS | Link between users and the circuits they follow | v0.1 | Draft |
-| [NOTIFICATIONS.md](NOTIFICATIONS.md) | NOTIF | Notification types, user preferences and push delivery | v0.1 | Draft |
-| [MOBILE.md](MOBILE.md) | MOB | Client-wide concerns: platform, distribution and locale | v0.1 | Draft |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | ARCH | System components, data flow and hosting | v0.2 | Draft |
+| [LISTENER.md](LISTENER.md) | LSN | Telegram channel ingestion and message parsing | v0.2 | Draft |
+| [CIRCUITS.md](CIRCUITS.md) | CIRC | Circuit catalog, current circuit state, provincial and daily situation | v0.2 | Draft |
+| [ACCOUNTS.md](ACCOUNTS.md) | ACCT | User accounts, authentication and guest use | v0.2 | Draft |
+| [SUBSCRIPTIONS.md](SUBSCRIPTIONS.md) | SUBS | Link between users and the circuits they follow | v0.2 | Draft |
+| [NOTIFICATIONS.md](NOTIFICATIONS.md) | NOTIF | Notification types, user preferences and push delivery | v0.2 | Draft |
+| [MOBILE.md](MOBILE.md) | MOB | Client-wide concerns: platform, distribution and locale | v0.2 | Draft |
+| [HISTORY.md](HISTORY.md) | HIST | Stored circuit history, per-circuit statistics and prediction | v0.1 | Draft |
+| [PLANS.md](PLANS.md) | PLAN | Free and paid plans, limits, manual payments and plan activation | v0.1 | Draft |
+| [WIDGET.md](WIDGET.md) | WIDG | Android home-screen widget | v0.1 | Draft |
+| [ROADMAP.md](ROADMAP.md) | ROAD | Project plan: MVP (including push validation) and phase order | v0.1 | Draft |
 
 <!-- Modules are added as rows: | [<NAME>.md](<NAME>.md) | <CODE> | <approved purpose> | vX.Y | Draft/Approved | -->

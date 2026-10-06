@@ -4,7 +4,7 @@
 
 - **Module:** Accounts
 - **Module code:** ACCT
-- **Version:** v0.1
+- **Version:** v0.2
 - **Status:** Draft
 - **Last updated:** 2026-10-06
 
@@ -12,11 +12,23 @@
 
 ## Description
 
-User accounts: registration, login and authentication.
+User accounts: registration, login and authentication, and guest use without an account. Free and paid plans are in [PLANS.md](PLANS.md).
 
 ## Decided so far
 
-- Users have accounts: registration and login with **email + password**.
+### Accounts
+
+- Users can register and log in with **email + password**.
+- Account features: **email verification**, **password recovery**, **password change**, **account deletion**.
+- **Authentication:** a short-lived **access token** (~15 min) and a long-lived **refresh token** (~30 days), stored securely on the device.
+- **Passwords:** hashed with a strong algorithm (argon2 or bcrypt); minimum **8 characters**.
+- The provider used to send emails is still to be decided (open point 1).
+
+### Guests (no account)
+
+- Without an account, a user can do **everything except receive push notifications** ([NOTIFICATIONS.md](NOTIFICATIONS.md)). Guests are on the free plan ([PLANS.md](PLANS.md)).
+- Guest data (subscriptions, preferences) is stored **only locally** on the device. The app warns guests to register to avoid losing their data.
+- On registration, the local data is **preserved**: it is moved to the new account.
 
 ## Requirements
 
@@ -28,5 +40,4 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **Account features.** Email verification, password reset, password rules, account deletion, and the authentication mechanism (e.g. tokens/sessions and their lifetime).
-2. **Access without an account.** Whether any part of the app (e.g. browsing circuits and their state) is usable without logging in.
+1. **Email sending provider.** Which provider sends verification and password-recovery emails.

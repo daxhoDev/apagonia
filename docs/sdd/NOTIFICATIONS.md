@@ -4,7 +4,7 @@
 
 - **Module:** Notifications
 - **Module code:** NOTIF
-- **Version:** v0.1
+- **Version:** v0.2
 - **Status:** Draft
 - **Last updated:** 2026-10-06
 
@@ -16,13 +16,37 @@ Notifications sent to users about their subscribed circuits ([SUBSCRIPTIONS.md](
 
 ## Decided so far
 
+### Notification types
+
 All three notification types exist:
 
 1. **Power returns:** a circuit that was affected stops appearing in the messages.
 2. **Power goes out:** a circuit that was not affected appears in a message.
-3. **Every new message:** a notification for each new message, with the circuit's status and outage hours.
+3. **Every status message:** **one grouped notification per user per status message**, listing the state of **all** the user's subscribed circuits (affected, with outage hours, or with power), plus **one extra line** with the provincial situation (served MW and maximum outage time).
 
-Notification preferences are configurable per user: a **global setting with per-circuit exceptions**.
+When one status message triggers several of these for the same user (e.g. "every status message" ON and a subscribed circuit changes), the user gets **one combined notification** that **highlights the change** and **summarises the rest**.
+
+### Notification content
+
+- Wherever a notification states a circuit's status, it also shows the **cause** (e.g. `Avería`, `Emergencia`) and the **ramal** detail (e.g. `Ramal Tanganica`) when the message reports them ([CIRCUITS.md](CIRCUITS.md)).
+- A circuit listed only through one of its ramals counts as affected for the "power goes out" and "power returns" notifications.
+- A message the listener discards (any line not understood, [LISTENER.md](LISTENER.md)) triggers no notification. Daily situation messages trigger no notification ([CIRCUITS.md](CIRCUITS.md)).
+- Edits and deletions of the current status message by the channel are notified only through the resulting changes ([LISTENER.md](LISTENER.md)).
+- Messages imported on first start trigger no notification. After listener downtime, only the changes of the **most recent** missed status message generate notifications ([LISTENER.md](LISTENER.md)).
+
+### Preferences
+
+- Notification preferences are configurable per user: a **global setting with per-circuit exceptions**.
+- Defaults for a new user: **power goes out ON**, **power returns ON**, **every status message OFF**.
+- A newly subscribed circuit has no exception, so it follows the user's global setting.
+- **Quiet hours:** the user can set a time range during which no notifications are sent. Notifications that fall in it are dropped, not delayed.
+- Only users with an account get push notifications; guests get none ([ACCOUNTS.md](ACCOUNTS.md)). Paused subscriptions ([PLANS.md](PLANS.md)) get no notifications. Paid-plan expiry warnings are also sent as notifications ([PLANS.md](PLANS.md)).
+
+### Delivery
+
+- Channel: **Expo Push** (through FCM), with an **in-app fallback**: devices without Google services get no push, but see the up-to-date state when they open the app, plus a notice that their phone does not support notifications.
+- The delivery channel is **interchangeable**: the server-side notifier and the app talk to a pluggable delivery channel, so that a self-hosted persistent connection can replace FCM if needed.
+- **Push validation (Phase 0, merged into the MVP):** FCM availability in Cuba is unconfirmed. Expo Push is validated with the MVP on real devices in Holguín, **without VPN**, with the **app closed** ([ROADMAP.md](ROADMAP.md)). Pass criterion (lax): **most** notifications arrive; no timing thresholds. If it fails, plan B: the delivery channel is replaced by a self-hosted persistent connection.
 
 ## Requirements
 
@@ -34,6 +58,4 @@ TBD — defined once the requirements are finalised. Their order relative to the
 
 ## Open points
 
-1. **Push notification channel.** The user chose to research options (Expo Push / FCM versus alternatives without Google services). The research has not been launched; the research question still needs the user's approval.
-2. **"Every new message" notification details.** Whether it is one notification per message or per subscribed circuit; its content when a user has several subscribed circuits; whether notifications for several circuits are grouped.
-3. **Notification preference model.** Exactly which settings exist (on/off per notification type? quiet hours?), their defaults for a new user and for a newly subscribed circuit.
+1. **Plan B design.** The design of the self-hosted persistent connection, needed only if the push validation fails.
